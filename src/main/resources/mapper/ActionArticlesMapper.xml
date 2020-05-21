@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.actional.blog.mapper.ActionArticlesMapper">
+  <resultMap id="BaseResultMap" type="cn.actional.blog.domain.ActionArticles">
+    <!--@mbg.generated generated on Mon May 18 21:48:40 CST 2020.-->
+    <!--@Table action_articles-->
+    <id column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="article_title" jdbcType="LONGVARCHAR" property="articleTitle" />
+    <result column="article_flag" jdbcType="VARCHAR" property="articleFlag" />
+    <result column="article_date" jdbcType="TIMESTAMP" property="articleDate" />
+    <result column="recommend" jdbcType="BOOLEAN" property="recommend" />
+    <result column="del" jdbcType="BOOLEAN" property="del" />
+    <result column="article_status" jdbcType="BOOLEAN" property="articleStatus" />
+    <association property="category" javaType="cn.actional.blog.domain.ActionCategories" >
+      <id property="categoryId" column="category_id"></id>
+      <result property="categoryName" column="category_name"></result>
+    </association>
+  </resultMap>
+
+
+  <resultMap id="BaseResultDetailsMap" type="cn.actional.blog.domain.ActionArticles">
+    <id column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="article_title" jdbcType="LONGVARCHAR" property="articleTitle" />
+    <result column="article_flag" jdbcType="VARCHAR" property="articleFlag" />
+    <result column="article_date" jdbcType="TIMESTAMP" property="articleDate" />
+    <result column="recommend" jdbcType="BOOLEAN" property="recommend" />
+    <result column="del" jdbcType="BOOLEAN" property="del" />
+    <result column="article_status" jdbcType="BOOLEAN" property="articleStatus" />
+    <association property="category" javaType="cn.actional.blog.domain.ActionCategories" >
+      <id property="categoryId" column="category_id"></id>
+      <result property="categoryName" column="category_name"></result>
+    </association>
+    <association property="articlesParam" javaType="cn.actional.blog.domain.ActionArticlesParam">
+      <id property="articleId" column="article_id"></id>
+      <result property="articleCommentCount" column="article_comment_count"></result>
+      <result property="articleContent" column="article_content"></result>
+      <result property="articleThumbUp" column="article_thumb_up"></result>
+      <result property="articleViews" column="article_views"></result>
+    </association>
+  </resultMap>
+
+
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Mon May 18 21:48:40 CST 2020.-->
+    article_id, article_title, article_flag, article_date, recommend, del, article_status,
+    category_id
+  </sql>
+
+
+  <select id="getArticles" resultMap="BaseResultMap" >
+    select *
+    from action_articles left join
+    action_categories ac on
+    action_articles.category_id = ac.category_id
+    where del = 0
+    order by article_date desc
+  </select>
+
+  <select id="getLatest" resultMap="BaseResultMap" >
+    select *
+    from action_articles aa left join
+    action_categories ac on aa.category_id = ac.category_id
+    where del = 0
+    order by article_date desc
+    limit 0,5
+  </select>
+
+  <select id="selectByYear" resultType="cn.actional.blog.domain.ActionArticles">
+    select * from action_articles
+    where date_format(article_date,'%Y') = #{year} and del = 0
+    order by article_date desc
+  </select>
+
+  <select id="selectByCategoryId" resultMap="BaseResultMap">
+    select * from action_articles
+    where category_id = #{categoryId} and del = 0
+  </select>
+
+  <select id="selectByParam" resultMap="BaseResultMap">
+    select *
+    from action_articles left join
+    action_categories ac on action_articles.category_id = ac.category_id
+    <where>
+      del = 0
+      <if test="keyword != null " >
+        AND article_title like CONCAT('%' ,#{keyword}, '%')
+      </if>
+    </where>
+  </select>
+
+
+  <select id="selectByArticleId" resultMap="BaseResultDetailsMap" >
+    select * from
+    action_articles aa
+    left join
+    action_categories ac on aa.category_id = ac.category_id
+    left join
+    action_articles_param aap on aa.article_id = aap.article_id
+    where aa.article_id = #{articleId} and del = 0
+  </select>
+
+
+  <insert id="insertArticle" useGeneratedKeys="true" keyProperty="articleId" parameterType="cn.actional.blog.domain.ActionArticles">
+    insert into action_articles(<include refid="Base_Column_List" />)
+    values(null ,#{articleTitle},#{articleFlag},#{articleDate},#{recommend},#{del},#{articleStatus},#{category.categoryId})
+  </insert>
+
+  <insert id="insertArticleParam" parameterType="cn.actional.blog.domain.ActionArticlesParam" >
+    insert into
+    action_articles_param(article_id,article_comment_count,
+    article_thumb_up,article_views,article_content)
+    values(#{articleId},#{articleCommentCount},#{articleThumbUp},
+    #{articleViews},#{articleContent})
+  </insert>
+
+
+  <select id="getPreArticleId" resultType="long">
+    select article_id from action_articles
+    where article_id &lt; #{articleId} and del = 0
+    order by article_id desc limit 1
+  </select>
+
+  <select id="getNextArticleId" resultType="long">
+    select article_id from  action_articles
+    where article_id &gt; #{articleId} and del = 0
+    order by article_id asc limit 1
+  </select>
+
+  <select id="selectByDate" resultType="cn.actional.blog.domain.ActionArticles">
+    select * from action_articles
+    where article_date like concat('%', #{date}, '%') and del = 0
+    order by article_date desc
+  </select>
+
+  <update id="deleteBatch">
+    update action_articles
+    set del=1 where article_id in
+    <foreach item="id" collection="array" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </update>
+
+</mapper>

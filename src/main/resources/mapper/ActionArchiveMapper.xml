@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.actional.blog.mapper.ArchiveMapper">
+
+    <resultMap id="BaseArchiveMap" type="cn.actional.blog.common.dto.BaseCount">
+        <result property="count" column="count"></result>
+        <result column="date" jdbcType="DATE" property="item"></result>
+    </resultMap>
+
+
+    <select id="getArchive" resultMap="BaseArchiveMap">
+    select date_format(article_date,'%m月 %Y') as date ,
+    count(*) as count
+    from action_articles group by date order by date desc
+  </select>
+
+    <select id="getArchiveGroupByYear" resultType="string">
+        select date_format(article_date,'%Y') as date
+        from action_articles group by date order by date desc
+    </select>
+
+
+
+
+</mapper>
+
+

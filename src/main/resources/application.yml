@@ -1,0 +1,54 @@
+server:
+  port: 9000
+spring:
+  tengxun:
+    secretId: AKIDG8sb8VTbjlpiMp5SNJ3QZTGthIpAZUL7
+    secretKey: hpphx7FF1c5LeliDblisvcS60E6rOlwT
+    bucket: ap-guangzhou
+    bucketName: action-app-1301755467
+    path: https://action-app-1301755467.cos.ap-guangzhou.myqcloud.com
+    prefix: blog
+  thymeleaf:
+    cache: false
+  datasource:
+    name: my-blog-datasource
+    url: jdbc:mysql://mysql:3306/actional_blog?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: hikariCP
+      max-lifetime: 30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    #host: reids
+    host: 106.52.158.96
+    port: 6379
+    password: root123456
+    timeout: 12000ms
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  type-aliases-package: cn.actional.blog.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    root: info
+  config: classpath:logback.xml
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.actional.blog.mapper.ActionCategoriesMapper">
+  <resultMap id="BaseResultMap" type="cn.actional.blog.domain.ActionCategories">
+    <!--@mbg.generated-->
+    <!--@Table action_categories-->
+    <id column="category_id" jdbcType="BIGINT" property="categoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    category_id, category_name
+  </sql>
+
+
+  <resultMap id="BaseCountMap" type="cn.actional.blog.common.dto.BaseCount">
+    <result column="count" jdbcType="BIGINT" property="count"></result>
+    <association property="item" javaType="cn.actional.blog.domain.ActionCategories" >
+      <id column="category_id" jdbcType="BIGINT" property="categoryId" />
+      <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    </association>
+  </resultMap>
+
+
+  <select id="selectByGroup" resultMap="BaseCountMap">
+    select ac.category_id,ac.category_name,count(aa.article_id) as count
+    from action_articles aa left join action_categories ac
+    on aa.category_id = ac.category_id
+    group by ac.category_id
+  </select>
+
+
+</mapper>

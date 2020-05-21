@@ -1,0 +1,111 @@
+<main class="main" role="main"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="categories-fragment"
+>
+
+    <style>
+
+    </style>
+    <article class="article article-categories article-type-list" itemscope>
+        <header class="article-header">
+
+
+            <h1 class="hidden-xs" itemprop="name">分类
+                <span th:if="${categoryMap.map.size() == 1}" th:each="map: ${categoryMap.map}"
+                      th:text="'&#58; ' + ${map.key.item.categoryName}">前端
+                    </span>
+            </h1>
+            <p class="text-muted hidden-xs">
+                <span th:switch="${categoryMap.map.size() > 1}">
+                    <span th:case="true">
+                        共 <span th:text="${categoryMap.pageInfo.total}"></span> 个分类
+                    </span>
+                    <span th:case="false">
+                        共 <span th:each="map: ${categoryMap.map}"
+                                th:text="${map.key.count}"></span> 篇文章
+                    </span>
+
+                </span>
+
+            </p>
+            <nav class="okayNav" id="nav-main" role="navigation">
+                <ul>
+                    <li>
+                        <a th:href="@{'/categories' }">
+                            All
+                        </a>
+                    </li>
+                    <li th:each="baseCount: ${categoryByGroup}">
+                        <a th:text="${baseCount.item.categoryName}"
+                           th:href="@{'/category/' +${baseCount.item.categoryId}}">
+                            All
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </header>
+        <div class="article-body">
+
+            <div class="panel panel-default b-no" th:each="map: ${categoryMap.map}">
+                <div class="panel-heading" role="tab">
+                    <h3 class="panel-title">
+                        <a aria-expanded="true" data-toggle="collapse" href="#collapsec#">
+                            <i class="icon icon-folder text-active"></i>
+                            <i class="icon icon-folder-open text"></i>
+                            <span th:text="${map.key.item.categoryName}"></span>
+                        </a>
+                        <small class="text-muted">(共 <span th:text="${map.key.count}">5</span> 篇文章)
+                        </small>
+                    </h3>
+                </div>
+
+
+                <div aria-labelledby="headingc#" class="panel-collapse collapse in" id="collapsec#"
+                     role="tabpanel">
+                    <div class="panel-body">
+                        <div class="collection">
+                            <a class="collection-item" th:each="article: ${map.value}"
+                               th:href="@{'/article/' + ${article.articleId}}" itemprop="url" target="_blank">
+                                <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                    <span th:text="${article.formatDate}">2020-05-04</span>
+                                </time>
+                                <span>&nbsp;&nbsp;&nbsp;</span>
+                                <span th:text="${article.articleTitle}">java用@RequestParam接收vue的post请求参数</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div th:if="${categoryMap.pageInfo != null}">
+
+            <span style="float: left">
+
+                <a th:if="${! categoryMap.pageInfo.isFirstPage}"
+                   th:href="@{'/category/0/' + ${categoryMap.pageInfo.prePage}}"
+                   class='archive-list-link'>
+                    &lt;
+                    Prev
+                </a>
+                <a th:if="${! categoryMap.pageInfo.isLastPage}"
+                   th:href="@{'/category/0/' + ${categoryMap.pageInfo.nextPage}}"
+                   class='archive-list-link'>
+                    Next
+                    &gt;
+                </a>
+            </span>
+            <span style="float: right">
+                Page <span th:text="${categoryMap.pageInfo.pageNum}">1</span>
+                of
+                <span th:text="${categoryMap.pageInfo.pages}">2</span>
+            </span>
+        </div>
+
+    </article>
+
+
+</main>

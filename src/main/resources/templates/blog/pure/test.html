@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- Canonical links -->
+        <link href="http://yoursite.com/index.html" rel="canonical">
+        <link href="/blog/pure/css/style.min.css" rel="stylesheet">
+        <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+        <meta content="actional" name="generator">
+        <script src="/blog/plugins/jquery/jquery.min.js"></script>
+    </head>
+
+    <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+        <!-- 左栏 -->
+        <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+
+            <div class="slimContent" style="width: 100%;">
+
+
+                <div class="navbar-header">
+
+
+                    <div class="profile-block text-center">
+                        <a id="avatar" href="https://github.com/Ruffianjiang" target="_blank">
+                            <img class="img-circle img-rotate"
+                                 src="https://actional-1301755467.cos.ap-guangzhou.myqcloud.com/blog/2020/4/4/5153b30f-3448-44c8-8f3a-f16f61b00cb5.jpeg"
+                                 width="200"
+                                 height="200">
+                        </a>
+                        <h2 id="name" class="hidden-xs hidden-sm">actional</h2>
+                        <h3 id="title" class="hidden-xs hidden-sm hidden-md">JAVA Developer</h3>
+                        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>
+                            GaungDong, China
+                        </small>
+                    </div>
+
+                    <div class="search" id="search-form-wrap">
+
+                        <form class="search-form sidebar-form">
+                            <div class="input-group">
+                                <input type="text" class="search-form-input form-control" placeholder="Search"/>
+                                <span class="input-group-btn">
+                            <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;">
+                            <i class="icon icon-search"></i>
+                        </button>
+                        </span>
+                            </div>
+                        </form>
+                        <div class="ins-search">
+                            <div class="ins-search-mask"></div>
+                            <div class="ins-search-container">
+                                <div class="ins-input-wrapper">
+                                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                                           x-webkit-speech/>
+                                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="ins-section-wrapper">
+                                    <div class="ins-section-container"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
+                            data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+
+                <nav id="main-navbar" class="collapse navbar-collapse" itemscope
+                     itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+                    <ul class="nav navbar-nav main-nav menu-highlight">
+
+
+                        <li class="menu-item menu-item-home">
+                            <a href="/index">
+
+                                <i class="icon icon-home-fill"></i>
+
+                                <span class="menu-title">主页</span>
+                            </a>
+                        </li>
+
+
+                        <li class="menu-item menu-item-archives">
+                            <a href="/archives">
+
+                                <i class="icon icon-archives-fill"></i>
+
+                                <span class="menu-title">归档</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-item menu-item-categories">
+                            <a href="/categories">
+                                <i class="icon icon-folder"></i>
+                                <span class="menu-title">分类</span>
+                            </a>
+                        </li>
+
+
+                        <li class="menu-item menu-item-tags">
+                            <a href="/labels"><i class="icon icon-tags"></i>
+                                <span class="menu-title">标签</span>
+                            </a>
+                        </li>
+
+
+                        <!--<li class="menu-item menu-item-repository">
+                            <a href="/repository">
+
+                                <i class="icon icon-project"></i>
+
+                                <span class="menu-title">Repository</span>
+                            </a>
+                        </li>-->
+
+
+                        <li class="menu-item menu-item-links">
+                            <a href="/links">
+
+                                <i class="icon icon-friendship"></i>
+
+                                <span class="menu-title">友链</span>
+                            </a>
+                        </li>
+
+
+                        <li class="menu-item menu-item-about">
+                            <a href="/about">
+
+                                <i class="icon icon-cup-fill"></i>
+
+                                <span class="menu-title">关于</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                    <ul class="social-links">
+
+                        <li><a href="https://github.com/Ruffianjiang" target="_blank" title="Github" data-toggle=tooltip
+                               data-placement=top><i class="icon icon-github"></i></a></li>
+
+                        <li><a href="http://weibo.com/lossingdawnn" target="_blank" title="Weibo" data-toggle=tooltip
+                               data-placement=top><i class="icon icon-weibo"></i></a></li>
+
+                        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i
+                                class="icon icon-rss"></i></a></li>
+
+                    </ul>
+
+                </nav>
+            </div>
+        </header>
+        <!-- 右栏 -->
+        <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar"
+        >
+            <div class='slimContent'>
+                <!-- 分类 -->
+                <div class='widget'>
+                    <h3 class='widget-title'>分类</h3>
+                    <div   :key='category.categoryId'class='widget-body'>
+                        <ul class='archive-list'>
+                            <li class='archive-list-item'>
+                                <a   class='archive-list-link'
+                                     href="/category/3">前端</a>
+                                <span class='archive-list-count'><span>5</span></span>
+                            </li>
+                            <li class='archive-list-item'>
+                                <a   class='archive-list-link'
+                                     href="/category/4">Linux</a>
+                                <span class='archive-list-count'><span>8</span></span>
+                            </li>
+                            <li class='archive-list-item'>
+                                <a   class='archive-list-link'
+                                     href="/category/5">Mac</a>
+                                <span class='archive-list-count'><span>1</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 标签云 -->
+                <div class='widget'><h3 class='widget-title'>标签云</h3>
+                    <div class='widget-body tagcloud'>
+                        <a  href="/label/1"
+                            style='font-size:13px; margin-right: 10px'>
+
+                            <span>Java</span>
+                        </a><a  href="/label/7"
+                                style='font-size:13px; margin-right: 10px'>
+
+                        <span>Vue</span>
+                    </a><a  href="/label/13"
+                            style='font-size:13px; margin-right: 10px'>
+
+                        <span>Centos7</span>
+                    </a><a  href="/label/15"
+                            style='font-size:13px; margin-right: 10px'>
+
+                        <span>mac</span>
+                    </a><a  href="/label/16"
+                            style='font-size:13px; margin-right: 10px'>
+
+                        <span>环境</span>
+                    </a>
+                    </div>
+                </div>
+
+                <!-- 归档 -->
+                <div class='widget'><h3 class='widget-title'>归档</h3>
+                    <div class='widget-body'>
+                        <ul class='archive-list'>
+                            <li class='archive-list-item'>
+                                <a class='archive-list-link' href="/archive/2020-05">
+                                    <span>五月 2020</span>
+                                </a>
+                                <span class='archive-list-count'>11</span>
+                            </li>
+                            <li class='archive-list-item'>
+                                <a class='archive-list-link' href="/archive/2020-04">
+                                    <span>四月 2020</span>
+                                </a>
+                                <span class='archive-list-count'>1</span>
+                            </li>
+                            <li class='archive-list-item'>
+                                <a class='archive-list-link' href="/archive/2020-03">
+                                    <span>三月 2020</span>
+                                </a>
+                                <span class='archive-list-count'>1</span>
+                            </li>
+                            <li class='archive-list-item'>
+                                <a class='archive-list-link' href="/archive/2019-04">
+                                    <span>四月 2019</span>
+                                </a>
+                                <span class='archive-list-count'>1</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- 最新文章  -->
+                <div class='widget'><h3 class='widget-title'>最新文章</h3>
+                    <div class='widget-body'>
+                        <ul class='recent-post-list list-unstyled no-thumbnail'>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/3">前端</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/13" class='title'>java用@RequestPara...</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/3">前端</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/14" class='title'>vue+element ui起步</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/3">前端</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/15" class='title'>vue插槽slot</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/5">Mac</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/16" class='title'>mac安装 iTerm2   和 ...</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/4">Linux</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/18" class='title'>centos7安装nginx</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/4">Linux</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/19" class='title'>centos7安装redis</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/4">Linux</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/20" class='title'>centos7联网</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/4">Linux</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/21" class='title'>centos7 安装zsh</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/4">Linux</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/22" class='title'>linux安装jdk8</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='item-inner' >
+                                    <p class='item-category'>
+                                        <a class='category-link'  href="/category/4">Linux</a>
+                                    </p>
+                                    <p class='item-title'>
+                                        <a href="/article/23" class='title'>git常用命令</a>
+                                    </p>
+                                    <p class='item-date'>
+                                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'>2020-05-04</time>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <!-- 内容 -->
+        <main class="main" role="main"
+        >
+            <article class="article article-categories article-type-list" itemscope>
+                <header class="article-header">
+
+
+                    <h1 class="hidden-xs" itemprop="name">分类
+                    </h1>
+                    <p class="text-muted hidden-xs">
+                <span>
+                    <span>
+                        共 <span>3</span> 个分类
+                    </span>
+
+
+                </span>
+
+                    </p>
+                    <nav class="okayNav" id="nav-main" role="navigation">
+                        <ul>
+                            <li>
+                                <a href="/categories">
+                                    All
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/category/3">前端</a>
+                            </li>
+                            <li>
+                                <a href="/category/4">Linux</a>
+                            </li>
+                            <li>
+                                <a href="/category/5">Mac</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </header>
+                <div class="article-body">
+
+                    <div class="panel panel-default b-no">
+                        <div class="panel-heading" role="tab">
+                            <h3 class="panel-title">
+                                <a aria-expanded="true" data-toggle="collapse" href="#collapsec#">
+                                    <i class="icon icon-folder text-active"></i>
+                                    <i class="icon icon-folder-open text"></i>
+
+                                    <span>前端</span>
+                                </a>
+                                <small class="text-muted">(Total <span>5</span> articles)
+                                </small>
+                            </h3>
+                        </div>
+                        <div aria-labelledby="headingc#" class="panel-collapse collapse in" id="collapsec#"
+                             role="tabpanel">
+                            <div class="panel-body">
+                                <div class="collection">
+                                    <a class="collection-item" href="/article/13" itemprop="url" target="_blank">
+                                        <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                            <span>2020-05-04</span>
+                                        </time>
+                                        <span>&nbsp;&nbsp;&nbsp;</span>
+                                        <span>java用@RequestParam接收vue的post请求参数</span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default b-no">
+                        <div class="panel-heading" role="tab">
+                            <h3 class="panel-title">
+                                <a aria-expanded="true" data-toggle="collapse" href="#collapsec#">
+                                    <i class="icon icon-folder text-active"></i>
+                                    <i class="icon icon-folder-open text"></i>
+
+                                    <span>Linux</span>
+                                </a>
+                                <small class="text-muted">(Total <span>8</span> articles)
+                                </small>
+                            </h3>
+                        </div>
+                        <div aria-labelledby="headingc#" class="panel-collapse collapse in" id="collapsec#"
+                             role="tabpanel">
+                            <div class="panel-body">
+                                <div class="collection">
+                                    <a class="collection-item" href="/article/17" itemprop="url" target="_blank">
+                                        <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                            <span>2020-05-04</span>
+                                        </time>
+                                        <span>&nbsp;&nbsp;&nbsp;</span>
+                                        <span>centos7安装mysql</span>
+                                    </a><a class="collection-item" href="/article/18" itemprop="url" target="_blank">
+                                    <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                        <span>2020-05-04</span>
+                                    </time>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span>centos7安装nginx</span>
+                                </a><a class="collection-item" href="/article/19" itemprop="url" target="_blank">
+                                    <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                        <span>2020-05-04</span>
+                                    </time>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span>centos7安装redis</span>
+                                </a><a class="collection-item" href="/article/20" itemprop="url" target="_blank">
+                                    <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                        <span>2020-05-04</span>
+                                    </time>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span>centos7联网</span>
+                                </a><a class="collection-item" href="/article/21" itemprop="url" target="_blank">
+                                    <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                        <span>2020-05-04</span>
+                                    </time>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span>centos7 安装zsh</span>
+                                </a><a class="collection-item" href="/article/22" itemprop="url" target="_blank">
+                                    <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                        <span>2020-05-04</span>
+                                    </time>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span>linux安装jdk8</span>
+                                </a><a class="collection-item" href="/article/23" itemprop="url" target="_blank">
+                                    <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                        <span>2020-05-04</span>
+                                    </time>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span>git常用命令</span>
+                                </a><a class="collection-item" href="/article/10" itemprop="url" target="_blank">
+                                    <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                        <span>2020-04-30</span>
+                                    </time>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span>centos7安装mysql5.7</span>
+                                </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default b-no">
+                        <div class="panel-heading" role="tab">
+                            <h3 class="panel-title">
+                                <a aria-expanded="true" data-toggle="collapse" href="#collapsec#">
+                                    <i class="icon icon-folder text-active"></i>
+                                    <i class="icon icon-folder-open text"></i>
+
+                                    <span>Mac</span>
+                                </a>
+                                <small class="text-muted">(Total <span>1</span> articles)
+                                </small>
+                            </h3>
+                        </div>
+                        <div aria-labelledby="headingc#" class="panel-collapse collapse in" id="collapsec#"
+                             role="tabpanel">
+                            <div class="panel-body">
+                                <div class="collection">
+                                    <a class="collection-item" href="/article/16" itemprop="url" target="_blank">
+                                        <time datetime="2014-12-05T07:44:00.000Z" itemprop="datePublished">
+                                            <span>2020-05-04</span>
+                                        </time>
+                                        <span>&nbsp;&nbsp;&nbsp;</span>
+                                        <span>mac安装 iTerm2   和  zsh</span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+        </main>
+
+
+        <!--   页脚     -->
+        <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+
+
+            <ul class="social-links">
+
+                <li>
+                    <a href="https://github.com/cxg83843652" target="_blank" title="Github" data-toggle=tooltip
+                       data-placement=top>
+                        <i class="icon icon-github"></i>
+                    </a>
+                </li>
+
+                <li><a href="https://gitee.com/cxg83843652" target="_blank" title="Gitee" data-toggle=tooltip
+                       data-placement=top><i class="icon icon-gitee"></i></a></li>
+
+                <!--<li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i
+                        class="icon icon-rss"></i></a></li>-->
+
+            </ul>
+
+            <div class="copyright">
+
+
+                <div class="publishby">
+                    Theme by <a href="https://github.com/Ruffianjiang" target="_blank">
+                    Ruffianjiang </a>base on <a
+                        href="https://github.com/Ruffianjiang/hexo-theme-dawn" target="_blank">dawn</a>.
+                </div>
+
+
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+                <!--
+                <script src="https://s19.cnzz.com/z_stat.php?id=1273905585&web_id=1273905585" language="JavaScript"></script>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1273905585'%3E%3C/span%3E%3Cscript src='"
+                        + cnzz_protocol
+                        + "s19.cnzz.com/z_stat.php%3Fid%3D1273905585%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1273905585'%3E%3C/span%3E%3Cscript src='"
+                        + cnzz_protocol
+                        + "s19.cnzz.com/z_stat.php%3Fid%3D1273905585%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+
+                <script type="text/javascript">
+                    var cnzz_s_tag = document.createElement('script');
+                    cnzz_s_tag.type = 'text/javascript';
+                    cnzz_s_tag.async = true;
+                    cnzz_s_tag.charset = 'utf-8';
+                    cnzz_s_tag.src = 'https://s19.cnzz.com/z_stat.php%3Fid%3D1273905585%26show%3Dpic';
+                    var root_s = document.getElementsByTagName('script')[0];
+                    root_s.parentNode.insertBefore(cnzz_s_tag, root_s);
+                </script>
+
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1273905585'%3E%3C/span%3E%3Cscript src='"
+                        + cnzz_protocol
+                        + "s19.cnzz.com/z_stat.php%3Fid%3D1273905585' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                -->
+
+            </div>
+        </footer>
+
+
+        <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+        </script>
+
+        <script src="/blog/pure/js/plugin.js"></script>
+        <script src="/blog/pure/js/application.js"></script>
+
+
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+        <script defer>
+            var _hmt = _hmt || [];
+
+        </script>
+
+
+    </body>
+</html>

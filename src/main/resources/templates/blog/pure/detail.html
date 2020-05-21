@@ -1,0 +1,224 @@
+<main class="main" role="main"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="detail-fragment"
+
+>
+    <!-- markdown转html -->
+    <script th:src="@{/blog/plugins/jquery/jquery.min.js}"></script>
+
+    <script th:src="@{/blog/marked-master/highlight.min.js}"></script>
+
+    <link th:href="@{/blog/marked-master/a11y-light.css}" rel="stylesheet">
+
+    <script th:src="@{/blog/marked-master/marked.min.js}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script></script>
+
+
+    <div class="content">
+        <article th:id="post- + ${articleDetail.articleTitle}" class="article article-type-post" itemscope
+                 itemtype="http://schema.org/BlogPosting">
+            <div class="article-header">
+                <h1 class="article-title" itemprop="name" th:text="${articleDetail.articleTitle}">
+                    那些有趣的注释，有没有你曾用过的
+                </h1>
+                <div class="article-meta">
+                    <span class="article-date">
+                        <i class="icon icon-calendar-check"></i>
+                        <a th:href="@{'/article/' +${articleDetail.articleId}}" class="article-date">
+                            <time datetime="2018-03-28T12:45:41.000Z" th:text="${articleDetail.formatDate}"
+                                  itemprop="datePublished">2018-03-28
+                            </time>
+                        </a>
+                    </span>
+                    <span class="article-category">
+                        <i class="icon icon-folder"></i>
+                        <a class="article-category-link"
+                           th:href="@{'/category/' +${articleDetail.category.categoryId}}"
+                           th:text="${articleDetail.category.categoryName}">
+                            开发
+                        </a>
+                    </span>
+                    <span class="article-tag"><i class="icon icon-tags"></i>
+                        <a class="article-tag-link" th:href="@{'/label/' +${articleDetail.labelList[0].labelId}}"
+                           th:text="${articleDetail.labelList[0].labelName}">
+                            程序员
+                        </a>
+                    </span>
+                    <span class="article-read hidden-xs">
+                        <i class="icon icon-eye-fill" aria-hidden="true"></i>
+                        <span id="busuanzi_container_page_pv">
+                            <span id="busuanzi_value_page_pv">0</span>
+                        </span>
+                    </span>
+                    <span class="post-comment">
+                        <i class="icon icon-comment"></i>
+                        <a href="/2018/03/28/那些有趣的注释，有没有你曾用过的.html#comments"
+                           class="article-comment-link">评论
+                        </a>
+                    </span>
+                    <span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,011(字)</span>
+                </div>
+            </div>
+            <div class="article-entry marked-body " id="article-content" itemprop="articleBody">
+
+            </div>
+            <div class="article-footer">
+                <blockquote class="mt-2x">
+                    <ul class="post-copyright list-unstyled">
+                        <li class="post-copyright-link hidden-xs"><strong>本文链接：</strong> <a
+
+                                th:title="${articleDetail.articleTitle}" target="_blank" rel="external">
+                            http://actional.cn/<span th:text="'article/' + ${articleDetail.articleId}"></span> </a>
+                        </li>
+                        <li class="post-copyright-license"><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a
+                                href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank"
+                                rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+                        </li>
+                    </ul>
+                </blockquote>
+                <!--<div class="panel panel-default panel-badger">
+                    <div class="panel-body">
+                        <figure class="media">
+                            <div class="media-left"><a href="https://github.com/cofess" target="_blank"
+                                                       class="img-burn thumb-sm visible-lg"><img
+                                    src="/images/avatar.jpg" class="img-rounded w-full" alt=""></a></div>
+                            <div class="media-body">
+                                <h3 class="media-heading"><a href="https://github.com/cofess"
+                                                             target="_blank"><span
+                                        class="text-dark">Cofess</span>
+                                    <small class="ml-1x">Web Developer &amp; Designer</small>
+                                </a></h3>
+                                <div>喜欢新事物，关注前端动态，对新的技术有追求； 喜欢产品，喜欢设计，喜欢 coding。</div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>-->
+            </div>
+        </article>
+        <section id="comments"></section>
+    </div>
+
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+
+        <div class="bar-inner">
+            <ul class="pager pull-left">
+                <li class="prev" th:if="${pre != null && pre > 0 }">
+                    <a th:href="@{'/article/' +${pre}}" title="年后的状态，懒！">
+                        <i class="icon icon-angle-left" aria-hidden="true"></i>
+                        <span>&nbsp;&nbsp;上一篇</span>
+                    </a>
+                </li>
+                <li class="next" th:if="${next != null && next > 0 }">
+                    <a th:href="@{'/article/' +${next}}" title="Hexo博客主题pure使用说明">
+                        <span>下一篇&nbsp;&nbsp;</span>
+                        <i class="icon icon-angle-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <!-- <li class="toggle-toc" >
+                     <a class="toggle-btn collapsed" data-toggle="collapse"
+                        href="#collapseToc" aria-expanded="false" title="文章目录"
+                        role="button">
+                         <span>[&nbsp;</span>
+                         <span>文章目录</span>
+                         <i class="text-collapsed icon icon-anchor"></i>
+                         <i class="text-in icon icon-close"></i>
+                         <span>]</span>
+                     </a>
+                 </li>-->
+            </ul>
+            <!--<button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning"
+                    data-toggle="modal" data-target="#donateModal"><span>赏</span></button>-->
+            <!--<div class="bar-right">
+                <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                     data-mobile-sites="weibo,qq,qzone"></div>
+            </div>-->
+        </div>
+    </nav>
+
+
+    <div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content donate">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body">
+                    <div class="donate-box">
+                        <div class="donate-head">
+                            <p>感谢您的支持，我会继续努力的!</p>
+                        </div>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                                <div class="donate-payimg">
+                                    <img src="https://actional-1301755467.cos.ap-guangzhou.myqcloud.com/blog/2020/4/4/cd862629-cf18-4ff9-8d43-5f658c36f496.png" alt="扫码支持" title="扫一扫">
+                                </div>
+                                <p class="text-muted mv">
+                                    扫码打赏，你说多少就多少
+                                </p>
+                                <p class="text-grey">
+                                    打开支付宝扫一扫，即可进行扫码打赏哦
+                                </p>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                                <div class="donate-payimg">
+                                    <img src="https://actional-1301755467.cos.ap-guangzhou.myqcloud.com/blog/2020/4/4/ad0f746e-fee9-49aa-b1e4-866fdc895981.png" alt="扫码支持" title="扫一扫">
+                                </div>
+                                <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+                                <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                            </div>
+                        </div>
+                        <div class="donate-footer">
+                            <ul class="nav nav-tabs nav-justified" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab"
+                                       aria-controls="alipay" aria-expanded="true">
+                                        <i class="icon icon-alipay"></i> 支付宝
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#wechatpay" role="tab" id="wechatpay-tab"
+                                       data-toggle="tab" aria-controls="wechatpay"
+                                       aria-expanded="false">
+                                        <i class="icon icon-wepay"></i>
+                                        微信支付
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script th:inline="javascript" type="text/javascript">
+
+        marked.setOptions({
+
+            renderer: new marked.Renderer(),
+            gfm: true,
+            pedantic: false,
+            sanitize: false,
+            tables: true,
+            breaks: true,
+            smartLists: true,
+            smartypants: true,
+            highlight: function (code) {
+                return hljs.highlightAuto(code).value;
+            }
+
+        });
+
+
+        hljs.initHighlighting();
+        var message = [[${articleDetail.articlesParam.articleContent}]];
+        document.getElementById('article-content').innerHTML = marked(message);
+        $('pre').addClass("highlight plain");
+
+
+    </script>
+
+</main>

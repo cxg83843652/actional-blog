@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.actional.blog.mapper.ActionLinkMapper">
+  <resultMap id="BaseResultMap" type="cn.actional.blog.domain.ActionLink">
+    <!--@mbg.generated generated on Wed May 20 01:38:34 CST 2020.-->
+    <!--@Table action_link-->
+    <id column="link_id" jdbcType="INTEGER" property="linkId" />
+    <result column="link_type" jdbcType="TINYINT" property="linkType" />
+    <result column="link_name" jdbcType="VARCHAR" property="linkName" />
+    <result column="link_url" jdbcType="VARCHAR" property="linkUrl" />
+    <result column="link_description" jdbcType="VARCHAR" property="linkDescription" />
+    <result column="link_rank" jdbcType="INTEGER" property="linkRank" />
+    <result column="del" jdbcType="TINYINT" property="del" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="link_logo" jdbcType="VARCHAR" property="linkLogo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed May 20 01:38:34 CST 2020.-->
+    link_id, link_type, link_name, link_url, link_description, link_rank, del, create_time, 
+    link_logo
+  </sql>
+</mapper>

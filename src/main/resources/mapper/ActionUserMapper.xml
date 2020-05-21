@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.actional.blog.mapper.ActionUserMapper">
+  <resultMap id="BaseResultMap" type="cn.actional.blog.domain.ActionUser">
+    <!--@mbg.generated generated on Wed May 20 03:48:28 CST 2020.-->
+    <!--@Table action_user-->
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_nickname" jdbcType="VARCHAR" property="userNickname" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
+    <result column="user_salt" jdbcType="VARCHAR" property="userSalt" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="user_regis_time" jdbcType="DATE" property="userRegisTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed May 20 03:48:28 CST 2020.-->
+    user_id, user_nickname, user_name, user_password, user_salt, user_email, user_regis_time
+  </sql>
+</mapper>

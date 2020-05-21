@@ -1,0 +1,79 @@
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar"
+       xmlns:th="http://www.thymeleaf.org" th:fragment="blog-right-fragment"
+>
+    <div class='slimContent'>
+        <!-- 分类 -->
+        <div class='widget'>
+            <h3 class='widget-title'>分类</h3>
+            <div   :key='category.categoryId'class='widget-body'>
+            <ul class='archive-list'>
+                <li class='archive-list-item' th:each="category: ${categoryByGroup}" th:if="${category.count > 0}">
+                    <a   class='archive-list-link'
+                         th:href="@{'/category/' +${category.item.categoryId}}" th:text="${category.item.categoryName}">
+                        java
+                    </a>
+                    <span class='archive-list-count'><span th:text="${category.count}">6</span></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 标签云 -->
+    <div class='widget'><h3 class='widget-title'>标签云</h3>
+        <div class='widget-body tagcloud'>
+        <a  th:each="label: ${labelList}" th:href="@{'/label/' +${label.item.labelId}}"
+            style='font-size:13px; margin-right: 10px'>
+
+        <span th:text="${label.item.labelName}">java</span>
+        </a>
+    </div>
+    </div>
+
+    <!-- 归档 -->
+    <div class='widget'><h3 class='widget-title'>归档</h3>
+        <div class='widget-body'>
+            <ul class='archive-list'>
+                <li class='archive-list-item' th:each="archive: ${archiveList}">
+                    <a class='archive-list-link' th:href="'/archive/' + ${archive.item}">
+
+                       <!--<span th:text="${archive.item}" >三月2018</span>-->
+                       <span th:text="${archive.item}" >三月2018</span>
+                    </a>
+                    <span class='archive-list-count' th:text="${archive.count}">2</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- 最新文章  -->
+    <div class='widget'><h3 class='widget-title'>最新文章</h3>
+        <div class='widget-body'>
+            <ul class='recent-post-list list-unstyled no-thumbnail'>
+            <li th:each="article: ${articleLatest}">
+                <div class='item-inner' >
+                    <p class='item-category'>
+                        <a class='category-link'  th:href="@{'/category/' +${article.category.categoryId}}"
+                           th:text="${article.category.categoryName}">
+                            开发
+                        </a>
+                    </p>
+                    <p class='item-title'>
+                        <a th:href="@{'/article/' +${article.articleId}}" class='title'
+                           th:text="${#strings.abbreviate(article.articleTitle,20)}">
+                            那些有趣的注释，
+                        </a>
+                    </p>
+                    <p class='item-date'>
+                        <time datetime='2018-03-28T12:45:41.000Z' itemprop='datePublished'
+                        th:text="${article.formatDate}">
+                            2018-03-28
+                        </time>
+                    </p>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</aside>

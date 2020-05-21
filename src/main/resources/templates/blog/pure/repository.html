@@ -1,0 +1,29 @@
+<main class="main" role="main"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="repository-fragment">
+    <article class="article article-repository article-type-list" itemscope>
+        <header class="article-header"><h1 itemprop="title">Repositories</h1>
+            <p class="text-muted">I have <span id="repo-count">0</span> projects on Github</p></header>
+
+    </article>
+    <ul>
+        <li class="col-sm-6 col-md-6 col-lg-4">
+            <div class="repo hover-shadow hover-grow">
+                <div class="repo-image geopattern" ></div>
+                <h3 class="repo-title">
+                    <a  target="_blank" rel="external nofollow noopener noreferrer"></a></h3>
+                <p class="repo-body"></p>
+                <div class="repo-meta">
+                    <span class="meta meta-type pull-left" ></span>
+                    <span class="meta meta-star"  ><i
+                            class="icon icon-star-fill"></i> </span>
+                    <span class="meta meta-fork"  ><i
+                            class="icon icon-code-fork"></i></span>
+                    <span class="meta meta-last-updated" >
+        <i class="icon icon-clock"></i> <time></time></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</main>
+

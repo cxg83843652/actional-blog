@@ -1,0 +1,41 @@
+<main class="main" role="main"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="links-fragment"
+>
+    <article class="article article-links article-type-list" itemscope>
+        <header class="article-header">
+            <h1 itemprop="title">友情链接</h1>
+            <p class="text-muted">欢迎交换链接，可在当前页面留言</p>
+        </header>
+        <div class="article-body">
+            <div class="row">
+                <div class="col-sm-6 col-md-4" th:each="link: ${linkList}">
+                    <div class="panel panel-default hover-shadow hover-grow">
+                        <figure class="media media-middle">
+                            <div class="media-left pr-no">
+                                <a th:href="${link.linkUrl}" target="_blank"
+                                   class="img-burn thumb-md media-middle">
+                                    <img th:src="${link.linkLogo}" class="w-full" alt="">
+                                </a>
+                            </div>
+                            <div class="media-body p-0x">
+                                <h4 class="media-heading"><a
+                                        th:href="${link.linkUrl}" target="_blank">
+                                    <span class="text-dark" th:text="${link.linkName}">
+                                        创造狮
+                                    </span>
+                                </a>
+                                </h4>
+                                <div class="text-muted" th:text="${link.linkDescription}">
+                                    为创意工作者而设计
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </article>
+    <section id="comments"></section>
+</main>

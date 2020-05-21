@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.actional.blog.mapper.ActionConfigMapper">
+  <resultMap id="BaseResultMap" type="cn.actional.blog.domain.ActionConfig">
+    <!--@mbg.generated generated on Wed May 20 19:58:29 CST 2020.-->
+    <!--@Table action_config-->
+    <id column="config_id" jdbcType="BIGINT" property="configId" />
+    <result column="config_name" jdbcType="VARCHAR" property="configName" />
+    <result column="config_value" jdbcType="VARCHAR" property="configValue" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed May 20 19:58:29 CST 2020.-->
+    config_id, config_name, config_value, create_time
+  </sql>
+</mapper>

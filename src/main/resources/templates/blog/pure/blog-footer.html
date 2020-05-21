@@ -1,0 +1,75 @@
+<footer class="footer" itemscope itemtype="http://schema.org/WPFooter"
+        xmlns:th="http://www.thymeleaf.org" th:fragment="blog-footer-fragment">
+
+
+    <ul class="social-links">
+
+        <li>
+            <a href="https://github.com/cxg83843652" target="_blank" title="Github" data-toggle=tooltip
+               data-placement=top>
+                <i class="icon icon-github"></i>
+            </a>
+        </li>
+
+        <li><a href="https://gitee.com/cxg83843652" target="_blank" title="Gitee" data-toggle=tooltip
+               data-placement=top><i class="icon icon-gitee"></i></a></li>
+
+        <!--<li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i
+                class="icon icon-rss"></i></a></li>-->
+
+    </ul>
+
+    <div class="copyright">
+
+
+        <div class="publishby">
+            Theme by <a href="https://github.com/Ruffianjiang" target="_blank">
+            Ruffianjiang </a>base on <a
+                href="https://github.com/Ruffianjiang/hexo-theme-dawn" target="_blank">dawn</a>.
+        </div>
+
+        <div class="publishby">
+            <span th:text="${config.footerICP}"></span>
+        </div>
+
+
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+        <!--
+        <script src="https://s19.cnzz.com/z_stat.php?id=1273905585&web_id=1273905585" language="JavaScript"></script>
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1273905585'%3E%3C/span%3E%3Cscript src='"
+                + cnzz_protocol
+                + "s19.cnzz.com/z_stat.php%3Fid%3D1273905585%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1273905585'%3E%3C/span%3E%3Cscript src='"
+                + cnzz_protocol
+                + "s19.cnzz.com/z_stat.php%3Fid%3D1273905585%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+
+        <script type="text/javascript">
+            var cnzz_s_tag = document.createElement('script');
+            cnzz_s_tag.type = 'text/javascript';
+            cnzz_s_tag.async = true;
+            cnzz_s_tag.charset = 'utf-8';
+            cnzz_s_tag.src = 'https://s19.cnzz.com/z_stat.php%3Fid%3D1273905585%26show%3Dpic';
+            var root_s = document.getElementsByTagName('script')[0];
+            root_s.parentNode.insertBefore(cnzz_s_tag, root_s);
+        </script>
+
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1273905585'%3E%3C/span%3E%3Cscript src='"
+                + cnzz_protocol
+                + "s19.cnzz.com/z_stat.php%3Fid%3D1273905585' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        -->
+
+    </div>
+</footer>

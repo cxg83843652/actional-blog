@@ -1,0 +1,53 @@
+<main class="main" role="main"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="main-fragment">
+
+    <div class="content article-list">
+
+        <article class="article article-type-post" th:each="article: ${articleByPage.list}" itemscope
+                 itemtype="http://schema.org/BlogPosting">
+            <div class="article-header">
+
+
+                <h1 itemprop="name">
+                    <a class="article-title" th:href="@{'/article/' +${article.articleId}}">
+                        <span th:text="${#strings.abbreviate(article.articleTitle,26)}"></span>
+                    </a>
+                </h1>
+
+
+            </div>
+
+            <p class="article-meta">
+                <span class="article-date">
+                    <i class="icon icon-calendar-check"></i>
+                    <a class="article-date" th:href="@{'/article/' +${article.articleId}}">
+                      <time datetime="2020-04-03T10:14:39.000Z" itemprop="datePublished">
+                          <span th:text="${article.formatDate}">2020年04月03日</span>
+                      </time>
+                    </a>
+                </span>
+
+                <span class="article-category">
+                    <i class="icon icon-folder"></i>
+                    <a class="article-category-link" th:href="@{'/category/' +${article.category.categoryId}}">
+                       <span th:text="${article.category.categoryName}"></span>
+                    </a>
+                </span>
+
+                <span class="article-tag">
+                    <i class="icon icon-tags"></i>
+                    <a class="article-tag-link" th:href="@{'/category/' +${article.labelList[0].labelId}}">
+                       <span th:text="${article.labelList[0].labelName}"></span>
+                    </a>
+                </span>
+
+
+            </p>
+        </article>
+
+
+    </div>
+
+
+</main>

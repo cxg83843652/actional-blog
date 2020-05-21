@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.actional.blog.mapper.ActionCommentsMapper">
+  <resultMap id="BaseResultMap" type="cn.actional.blog.domain.ActionComments">
+    <!--@mbg.generated generated on Wed May 20 03:48:12 CST 2020.-->
+    <!--@Table action_comments-->
+    <id column="comment_id" jdbcType="BIGINT" property="commentId" />
+    <result column="submitter_id" jdbcType="BIGINT" property="submitterId" />
+    <result column="comment_like_count" jdbcType="BIGINT" property="commentLikeCount" />
+    <result column="comment_date" jdbcType="TIMESTAMP" property="commentDate" />
+    <result column="comment_content" jdbcType="LONGVARCHAR" property="commentContent" />
+    <result column="parent_comment_id" jdbcType="BIGINT" property="parentCommentId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed May 20 03:48:12 CST 2020.-->
+    comment_id, submitter_id, comment_like_count, comment_date, comment_content, parent_comment_id
+  </sql>
+</mapper>

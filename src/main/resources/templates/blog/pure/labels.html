@@ -1,0 +1,107 @@
+<main class="main" role="main"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="labels-fragment"
+>
+
+
+    <article class="article article-tags post-type-list" itemscope>
+        <header class="article-header">
+            <h1 itemprop="name" class="hidden-xs">标签</h1>
+            <p class="text-muted hidden-xs">
+                <span th:switch="${labelMap.map.size() > 1}">
+                    <span th:case="true">
+                        共 <span th:text="${labelMap.map.size()}">8</span> 个标签
+                    </span>
+                    <span th:case="false" th:each="map: ${labelMap.map}">
+                        共 <span th:text="${map.key.count}">8</span> 篇文章
+                    </span>
+
+                </span>
+            </p>
+            <nav role="navigation" id="nav-main" class="okayNav">
+
+                <ul>
+                    <li>
+                        <a th:href="@{'/labels' }">
+                            All
+                        </a>
+                    </li>
+                    <li th:each="baseCount: ${labelList}">
+                        <a th:text="${baseCount.item.labelName}"
+                           th:href="@{'/label/' +${baseCount.item.labelId}}">
+                            All
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </header>
+        <div class="article-body" th:each="map: ${labelMap.map}">
+            <h3 class="panel-title mb-1x">
+                <span th:if="${labelMap.map.size() > 1}">
+                    <a th:href="@{'/label/' + ${map.key.item.labelId}}" title="#Hexo">
+                        # <span th:text="${map.key.item.labelName}">Hexo</span>
+                    </a>
+
+                <small class="text-muted">(共 <span th:text="${map.key.count}">4</span> 篇文章)</small>
+                    </span>
+            </h3>
+            <div class="row">
+                <div class="col-md-6" th:each="article: ${map.value}">
+                    <article class="panel panel-default hover-shadow hover-grow" itemscope
+                             itemtype="http://schema.org/BlogPosting">
+                        <div class="panel-body">
+                            <div class="article-meta">
+                                <time datetime="2017-11-01T13:45:08.000Z" itemprop="datePublished">
+                                    <span th:text="${article.formatDate}">2017-11-01</span>
+                                </time>
+                            </div>
+                            <h3 class="article-title" itemprop="name">
+                                <a class="article-link"
+                                   th:href="@{'/article/' + ${article.articleId}}">
+                                    <span th:text="${article.articleTitle}">Hexo博客主题pure使用说明</span>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="panel-footer">
+                            <a th:href="@{'/article/' + ${article.articleId}}" class="label label-default mb">
+                                <span th:text="${map.key.item.labelName}">Hexo</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div th:if="${labelMap.pageInfo != null}">
+
+            <span style="float: left">
+
+                <a th:if="${! labelMap.pageInfo.isFirstPage}"
+                   th:href="@{'/label/0/' + ${labelMap.pageInfo.prePage}}"
+                   class='archive-list-link'>
+                    &lt;
+                    Prev
+                </a>
+                <a th:if="${! labelMap.pageInfo.isLastPage}"
+                   th:href="@{'/label/0/' + ${labelMap.pageInfo.nextPage}}"
+                   class='archive-list-link'>
+                    Next
+                    &gt;
+                </a>
+            </span>
+            <span style="float: right">
+                Page <span th:text="${labelMap.pageInfo.pageNum}">1</span>
+                of
+                <span th:text="${labelMap.pageInfo.pages}">2</span>
+            </span>
+        </div>
+    </article>
+
+</main>

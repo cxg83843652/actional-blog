@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <!-- Canonical links -->
+        <link href="http://yoursite.com/index.html" rel="canonical">
+        <link th:href="@{/blog/pure/css/style.min.css}" rel="stylesheet">
+        <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+        <meta content="actional" name="generator">
+        <script th:src="@{/blog/plugins/jquery/jquery.min.js}"></script>
+        <link rel="icon" href="https://action-app-1301755467.cos.ap-guangzhou.myqcloud.com/image/timg.jpeg" type="images/x-ico" />
+    </head>
+
+    <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+        <!-- 左栏 -->
+        <div id="left" th:replace="blog/pure/blog-left::blog-left-fragment"></div>
+        <!-- 右栏 -->
+        <div id="right" th:replace="blog/pure/blog-right::blog-right-fragment"></div>
+
+
+        <!-- 内容 -->
+        <div id="main" th:replace="${page}::${content}"></div>
+
+
+        <!--   页脚     -->
+        <div id="footer" th:replace="blog/pure/blog-footer::blog-footer-fragment"></div>
+
+
+        <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+        </script>
+
+        <script th:src="@{/blog/pure/js/plugin.js}"></script>
+        <script th:src="@{/blog/pure/js/application.js}"></script>
+
+
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+        <script defer>
+            var _hmt = _hmt || [];
+
+        </script>
+
+
+    </body>
+</html>
