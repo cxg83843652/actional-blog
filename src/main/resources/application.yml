@@ -2,11 +2,11 @@ server:
   port: 9000
 spring:
   tengxun:
-    secretId: AKIDG8sb8VTbjlpiMp5SNJ3QZTGthIpAZUL7
-    secretKey: hpphx7FF1c5LeliDblisvcS60E6rOlwT
+    secretId: #腾讯对象存储id
+    secretKey: #腾讯对象存储秘钥
     bucket: ap-guangzhou
-    bucketName: action-app-1301755467
-    path: https://action-app-1301755467.cos.ap-guangzhou.myqcloud.com
+    bucketName: #腾讯对象存储命名空间
+    path: #腾讯对象存储路径
     prefix: blog
   thymeleaf:
     cache: false
@@ -27,8 +27,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     database: 0
-    #host: reids
-    host: 106.52.158.96
+    host: reids
     port: 6379
     password: root123456
     timeout: 12000ms
@@ -45,7 +44,7 @@ mybatis:
   type-aliases-package: cn.actional.blog.pojo
   configuration:
     map-underscore-to-camel-case: true
-    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 logging:
   level:
